@@ -5,11 +5,13 @@ while again == "yes":
 
     if " sh " in maybe_sh:
         print("Found 'sh' alone")
-    elif "sh " in maybe_sh:
+    if "sh " in maybe_sh:
         print("Found 'sh' at the start of a word")
-    elif " sh" in maybe_sh:
+    if " sh" in maybe_sh:
         print("Found 'sh' at the end of a word")
+    if "sh" in maybe_sh:
+        print("Found 'sh'")
     else:
         print("No 'sh' found")
 
-    again = input("Do you want to try again? (yes/no): ")
+    again = input("Do you want to try again? (yes/anything else): ")
