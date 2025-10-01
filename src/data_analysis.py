@@ -9,22 +9,20 @@ def load_students(filename):
         students.append(line.split(","))
     return students
 
-    """Load student data from CSV file."""
-    # TODO: Implement CSV loading
-    pass
 
 def calculate_average_grade(students):
-    """Calculate average grade from student data."""
-    # TODO: Implement average calculation
-    pass
+    # Calculate average grade from student data.
+    total = 0
+    for student in students:
+        total += student[2]
+    return total/len(students)
+
 
 def count_math_students(students):
     # Count students in Math.
     math = students.count("Math")
     return math
-    """Count students in Math."""
-    # TODO: Implement counting
-    pass
+
 
 def generate_report(students):
     # Generate formatted report.
@@ -46,5 +44,5 @@ def main():
     # Main execution function.
     students = load_students('data/students.csv')
     report = generate_report(students)
-    save_report(report, 'output/analysis_report.txt')
+    save_report(report, 'output/analysis_report.txt)')
     
