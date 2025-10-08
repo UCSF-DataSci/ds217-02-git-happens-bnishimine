@@ -1,0 +1,3 @@
+Number of students: 10
+Average grade: 69.2
+Number of math students: 0
