@@ -1,4 +1,5 @@
 """Basic student data analysis script."""
+import os
 
 def load_students(filename):
     # Load student data from CSV file.
@@ -36,6 +37,7 @@ def generate_report(students):
 
 def save_report(report, filename):
     # Save report to file.
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, 'w') as file:
         file.write(report)
 
