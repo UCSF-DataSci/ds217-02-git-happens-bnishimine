@@ -14,7 +14,7 @@ def calculate_average_grade(students):
     # Calculate average grade from student data.
     total = 0
     for student in students:
-        total += as.integer(student[2])
+        total += int(student[2])
     return total/len(students)
 
 
