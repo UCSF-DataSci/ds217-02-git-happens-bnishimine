@@ -4,6 +4,7 @@ import os
 def load_students(filename):
     # Load student data from CSV file.
     with open(filename, 'r') as file:
+        next(file)  # Skip header line
         student_data = file.readlines()
     students = []
     for line in student_data:
@@ -50,3 +51,6 @@ def main():
     report = generate_report(students)
     save_report(report, 'output/analysis_report.txt')
     
+
+if __name__ == "__main__":
+    main()

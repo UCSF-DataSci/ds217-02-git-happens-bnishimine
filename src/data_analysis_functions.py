@@ -1,5 +1,5 @@
 """Advanced student data analysis script."""
-
+import os
 def load_data(filename):
     # Check if file is CSV
     if filename.endswith('.csv'):
@@ -10,7 +10,7 @@ def load_data(filename):
 
 def load_csv(filename):
     # Load student data from CSV file.
-    with open('filename', 'r') as file:
+    with open(filename, 'r') as file:
         student_data = file.readlines()
     students = []
     for line in student_data:
@@ -19,9 +19,9 @@ def load_csv(filename):
 
 def analyze_data(students):
     # Calculate multiple statistics
-    max_grade = max(student[2] for student in students)
-    min_grade = min(student[2] for student in students)
-    avg_grade = sum(student[2] for student in students) / len(students)
+    max_grade = max(int(student[2]) for student in students)
+    min_grade = min(int(student[2]) for student in students)
+    avg_grade = sum(int(student[2]) for student in students) / len(students)
     return {
         "Maximum grade": max_grade,
         "Minimum grade": min_grade,
@@ -35,7 +35,7 @@ def analyze_grade_distribution(students):
     total = len(students)
 
     for student in students:
-        grade = student[2]
+        grade = int(student[2])
         if grade >= 90:
             distribution["A"] += 1
         elif grade >= 80:
@@ -49,25 +49,25 @@ def analyze_grade_distribution(students):
     
     percent_distribution = { percent: (count / total) * 100 for percent, count in distribution.items()}
 
-    return { distribution , percent_distribution}
+    return { 'Grades': distribution , 'Grade breakdown': percent_distribution}
 
 
 def save_results(results, filename):
     # Generate formatted report.
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     total = len(results)
     data_analysis = analyze_data(results)
     analysis_grade_dist = analyze_grade_distribution(results)
-
-    return ("Number of students: ", total,
-             "\nData analysis: ", data_analysis,
-             "\nGrade distribution: ", analysis_grade_dist)
+    report = (f"Number of students: {total}\n"
+              f"\nData analysis: {data_analysis:.1f}\n"
+              f"\nGrade distribution: {analysis_grade_dist}\n")
     with open(filename, 'w') as file:
         file.write(report)
 
 def main():
     """Main execution function."""
-    students = load_students('data/students.csv')
+    students = load_data('data/students.csv')
 
     results = analyze_data(students)
 
@@ -76,3 +76,6 @@ def main():
     print(results)
 
 
+
+if __name__ == "__main__":
+    main()
