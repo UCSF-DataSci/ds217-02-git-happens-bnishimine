@@ -44,19 +44,28 @@ def analyze_grade_distribution(students):
         else:
             distribution["F"] += 1
     
+    percent_distribution = { percent: (count / total) * 100 for percent, count in distribution.items()}
 
-
-    return distribution
+    return { distribution , percent_distribution}
 
 
 def save_results(results, filename):
-    """Generate formatted report."""
-    # TODO: Implement report generation
-    pass
+    # Generate formatted report.
+
+    total = len(results)
+    data_analysis = analyze_data(results)
+    analysis_grade_dist = analyze_grade_distribution(results)
+
+    return ("Number of students: ", total,
+             "\nData analysis: ", data_analysis,
+             "\nGrade distribution: ", analysis_grade_dist)
 
 def main():
     """Main execution function."""
-    # TODO: Orchestrate the analysis
-    pass
+    students = load_students('data/students.csv')
+
+    results = analyze_data(students)
+
+    save_results(results, 'output/analysis_report.txt')
 
 
