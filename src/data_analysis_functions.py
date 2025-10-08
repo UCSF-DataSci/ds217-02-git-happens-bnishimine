@@ -62,6 +62,8 @@ def save_results(results, filename):
     return ("Number of students: ", total,
              "\nData analysis: ", data_analysis,
              "\nGrade distribution: ", analysis_grade_dist)
+    with open(filename, 'w') as file:
+        file.write(report)
 
 def main():
     """Main execution function."""
@@ -71,5 +73,6 @@ def main():
 
     save_results(results, 'output/analysis_report.txt')
 
+    print(results)
 
 

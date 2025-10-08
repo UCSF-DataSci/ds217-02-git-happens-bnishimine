@@ -63,7 +63,7 @@ echo "create src/data_analysis.py with initialized functions"
 cat > src/data_analysis_functions.py << 'EOF'
 """Advanced student data analysis script."""
 
-def load_students(filename):
+def load_data(filename):
     """Check if file is CSV"""
     # TODO: Implement file checker
     pass
