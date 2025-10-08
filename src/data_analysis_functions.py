@@ -1,9 +1,12 @@
 """Advanced student data analysis script."""
 
-def load_students(filename):
-    """Check if file is CSV"""
-    # TODO: Implement file checker
-    pass
+def load_data(filename):
+    # Check if file is CSV
+    if filename.endswith('.csv'):
+        return load_csv(filename)
+    else:
+        return "Unsupported file format"
+    
 
 def load_csv(filename):
     # Load student data from CSV file.
@@ -67,5 +70,6 @@ def main():
     results = analyze_data(students)
 
     save_results(results, 'output/analysis_report.txt')
+
 
 
