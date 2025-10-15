@@ -22,19 +22,10 @@ def load_csv(filename):
 def analyze_data(students):
     # Calculate multiple statistics
     max_grade = max([s[2] for s in students])
-    
+
     min_grade = min([s[2] for s in students])
     
     avg_grade = sum([int(s[2]) for s in students]) / len(students)
-    # max_grade = 0
-    # for student in students:
-    #     if (student[2]) > max_grade:
-    #         max_grade = (student[2])
-
-    # min_grade = 0
-    # for student in students:
-    #     if int(student[2]) < min_grade or min_grade == 0:
-    #         min_grade = int(student[2])
             
     
     return {
@@ -74,11 +65,11 @@ def save_results(results, filename):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     total = len(results)
-    report = (f"Number of students: {results["Total students"]}\n"
-              f"\nAverage grade: {results["Average grade"]}\n"
-              f"\nHighest grade: {results["Maximum grade"]}\n"
-              f"\nLowest grade: {results["Minimum grade"]}\n"
-              f"\nGrade distribution: {results["Distribution"]}\n")
+    report = (f"Number of students: {results["Total students"]}"
+              f"\nAverage grade: {results["Average grade"]}"
+              f"\nHighest grade: {results["Maximum grade"]}"
+              f"\nLowest grade: {results["Minimum grade"]}"
+              f"\nGrade distribution: {results["Distribution"]}")
     with open(filename, 'w') as file:
         file.write(report)
 
