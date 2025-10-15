@@ -1,9 +1,1 @@
-Number of students: 10
-
-Average grade: 69.2
-
-Highest grade: 92
-
-Lowest grade: 100
-
-Grade distribution: {'Grades': {'A': 3, 'B': 2, 'C': 2, 'D': 1, 'F': 2}, 'Grade breakdown': {'A': 30.0, 'B': 20.0, 'C': 20.0, 'D': 10.0, 'F': 20.0}}
+Analysis Results:\nNumber of students: 10\nAverage grade: 69.2\nHighest grade: 92\nLowest grade: 100\nGrade distribution: {'Grades': {'A': 3, 'B': 2, 'C': 2, 'D': 1, 'F': 2}, 'Grade breakdown': {'A': 30.0, 'B': 20.0, 'C': 20.0, 'D': 10.0, 'F': 20.0}}
