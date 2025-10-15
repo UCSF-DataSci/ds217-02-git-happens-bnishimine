@@ -65,11 +65,11 @@ def save_results(results, filename):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     total = len(results)
-    report = (f"\\nNumber of students: {results["Total students"]}"
-              f"\\nAverage grade: {results["Average grade"]}"
-              f"\\nHighest grade: {results["Maximum grade"]}"
-              f"\\nLowest grade: {results["Minimum grade"]}"
-              f"\\nGrade distribution: {results["Distribution"]}")
+    report = (f"\\nNumber of students: {results['Total students']}"
+              f"\\nAverage grade: {results['Average grade']}"
+              f"\\nHighest grade: {results['Maximum grade']}"
+              f"\\nLowest grade: {results['Minimum grade']}"
+              f"\\nGrade distribution: {results['Distribution']}")
     with open(filename, 'w') as file:
         file.write(report)
 
