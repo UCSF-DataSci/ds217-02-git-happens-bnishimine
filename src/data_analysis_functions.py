@@ -11,21 +11,37 @@ def load_data(filename):
 def load_csv(filename):
     # Load student data from CSV file.
     with open(filename, 'r') as file:
+        next(file)  # Skip header line
         student_data = file.readlines()
     students = []
     for line in student_data:
         students.append(line.split(","))
     return students
 
+
 def analyze_data(students):
     # Calculate multiple statistics
-    max_grade = max(int(student[2]) for student in students)
-    min_grade = min(int(student[2]) for student in students)
-    avg_grade = sum(int(student[2]) for student in students) / len(students)
+    max_grade = max([s[2] for s in students])
+    
+    min_grade = min([s[2] for s in students])
+    
+    avg_grade = sum([int(s[2]) for s in students]) / len(students)
+    # max_grade = 0
+    # for student in students:
+    #     if (student[2]) > max_grade:
+    #         max_grade = (student[2])
+
+    # min_grade = 0
+    # for student in students:
+    #     if int(student[2]) < min_grade or min_grade == 0:
+    #         min_grade = int(student[2])
+            
+    
     return {
         "Maximum grade": max_grade,
         "Minimum grade": min_grade,
-        "Average grade": avg_grade
+        "Average grade": avg_grade,
+        "Distribution": analyze_grade_distribution(students)
     }
     
 
@@ -57,11 +73,9 @@ def save_results(results, filename):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     total = len(results)
-    data_analysis = analyze_data(results)
-    analysis_grade_dist = analyze_grade_distribution(results)
-    report = (f"Number of students: {total}\n"
-              f"\nData analysis: {data_analysis:.1f}\n"
-              f"\nGrade distribution: {analysis_grade_dist}\n")
+    report = (f"Number of students: {results}\n"
+              f"\nData analysis: {results}"
+              f"\nGrade distribution: {results["Distribution"]}\n")
     with open(filename, 'w') as file:
         file.write(report)
 

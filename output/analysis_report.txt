@@ -1,3 +1,4 @@
-Number of students: 10
-Average grade: 69.2
-Number of math students: 0
+Number of students: {'Maximum grade': '92', 'Minimum grade': '100', 'Average grade': 69.2, 'Distribution': {'Grades': {'A': 3, 'B': 2, 'C': 2, 'D': 1, 'F': 2}, 'Grade breakdown': {'A': 30.0, 'B': 20.0, 'C': 20.0, 'D': 10.0, 'F': 20.0}}}
+
+Data analysis: {'Maximum grade': '92', 'Minimum grade': '100', 'Average grade': 69.2, 'Distribution': {'Grades': {'A': 3, 'B': 2, 'C': 2, 'D': 1, 'F': 2}, 'Grade breakdown': {'A': 30.0, 'B': 20.0, 'C': 20.0, 'D': 10.0, 'F': 20.0}}}
+Grade distribution: {'Grades': {'A': 3, 'B': 2, 'C': 2, 'D': 1, 'F': 2}, 'Grade breakdown': {'A': 30.0, 'B': 20.0, 'C': 20.0, 'D': 10.0, 'F': 20.0}}
