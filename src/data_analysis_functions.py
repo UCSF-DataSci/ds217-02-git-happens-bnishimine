@@ -38,6 +38,7 @@ def analyze_data(students):
             
     
     return {
+        "Total students": len(students),
         "Maximum grade": max_grade,
         "Minimum grade": min_grade,
         "Average grade": avg_grade,
@@ -73,8 +74,10 @@ def save_results(results, filename):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     total = len(results)
-    report = (f"Number of students: {results}\n"
-              f"\nData analysis: {results}"
+    report = (f"Number of students: {results["Total students"]}\n"
+              f"\nAverage grade: {results["Average grade"]}\n"
+              f"\nHighest grade: {results["Maximum grade"]}\n"
+              f"\nLowest grade: {results["Minimum grade"]}\n"
               f"\nGrade distribution: {results["Distribution"]}\n")
     with open(filename, 'w') as file:
         file.write(report)
